@@ -82,10 +82,13 @@
       {{ range .materialItem }}
       <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="card border-0 text-center">
-          <img src="{{ .image | absURL }}" alt="material" class="card-img-top border-0">
+          <img width="225" height="225" src="{{ .image | absURL }}" alt="material" class="card-img-top border-0">
           <div class="card-body">
             <h4>{{ .title | markdownify }}</h4>
             <p>{{ .content | markdownify }}</p>
+            {{ with .button }}
+            <a href="{{ .link | absURL }}" class="btn">{{ .label }}</a>
+            {{ end }}
           </div>
         </div>
       </div>
